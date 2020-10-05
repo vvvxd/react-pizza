@@ -1,12 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-const Categories = ({items,onClick}) => {
+const Categories = ({items, onClick}) => {
+    const [activeItem, setActiveItem] = useState(0);
     return (
         <div className="categories">
             <ul>
-                <li className="active">Все</li>
-                {
-                    items.map((item,id)=> <li onClick={()=>onClick(item)} key={`${item}_${id}`} >{item}</li>)
+                { items &&
+                    items.map((item, id) => {
+                        return (
+                            <li
+                                onClick={() => setActiveItem(id)}
+                                key={`${item}_${id}`}
+                                className={activeItem===id ? 'active':''}
+                            >
+                                {item}
+                            </li>
+                        )
+                    })
                 }
             </ul>
         </div>
