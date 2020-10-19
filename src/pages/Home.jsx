@@ -24,7 +24,7 @@ const Home = () => {
     React.useEffect(() => {
         dispatch(fetchRizzas(cotegory, sortBy));
     }, [cotegory, sortBy]);
-console.log(cartItems);
+    
     const onSelectCategory = React.useCallback((index) => {
         dispatch(setCategory(index));
     }, []);
@@ -57,7 +57,11 @@ console.log(cartItems);
                           <PizzaBlock
                               onClickAddPizza={handleAddPizzaToCatr}
                               key={obj.id}
-                              addedCount={cartItems[obj.id]===undefined?'':cartItems[obj.id].length}
+                              addedCount={
+                                  cartItems[obj.id] === undefined
+                                      ? ''
+                                      : cartItems[obj.id].items.length
+                              }
                               {...obj}
                           />
                       ))
