@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../assets/img/pizza-logo.svg';
 import { Button } from '../components';
 import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector} from 'react-redux';
 
 const Header = () => {
     const { totalPrice, totalCount } = useSelector(({ cart }) => cart);
